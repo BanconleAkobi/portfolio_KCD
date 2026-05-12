@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "title": "Carlos — Mechanical Engineer",
+    "description": "Mechanical engineering student at INSA Hauts-de-France. Specialized in numerical simulation, CAD, FEA and industrial VR environments."
+  },
+  "nav": {
+    "about": "About",
+    "expertise": "Expertise",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "lang_switch": "FR",
+    "lang_switch_label": "Passer en français"
+  },
+  "hero": {
+    "badge": "Mechanical Engineer · INSA Hauts-de-France",
+    "headline_1": "Precision.",
+    "headline_2": "Simulation.",
+    "headline_3": "Innovation.",
+    "subline": "Engineering student specialized in industrial simulation, CAD and VR environments.",
+    "cta_primary": "View projects",
+    "cta_secondary": "Get in touch",
+    "scroll_hint": "Scroll",
+    "location": "Timișoara, Romania",
+    "location_label": "Currently in"
+  },
+  "about": {
+    "section_label": "// 01 ——— ABOUT",
+    "headline_1": "Engineer in progress,",
+    "headline_2": "thinker by vocation.",
+    "bio": "Apprentice engineer at NOVARES and student at INSA Hauts-de-France, I design and simulate complex mechanical systems. My approach combines analytical rigor, mastery of advanced digital tools and curiosity for emerging technologies — from classical FEA to industrial virtual reality environments.",
+    "bio_2": "Currently on an international internship in Timișoara, Romania, I apply these skills to real industrial challenges in a demanding, multicultural environment.",
+    "disciplines": {
+      "simulation": { "title": "Numerical Simulation", "desc": "FEA, fluid dynamics, stress analysis" },
+      "cad": { "title": "CAD & 3D Design", "desc": "CATIA V5, Fusion 360, SolidWorks" },
+      "vr": { "title": "Virtual Reality", "desc": "Industrial VR environments in Unity" },
+      "materials": { "title": "Materials Science", "desc": "Characterization, testing, rheology" },
+      "imaging": { "title": "Image Processing", "desc": "Dimensional analysis, quality control" },
+      "methods": { "title": "Industrial Methods", "desc": "GD&T, technical documentation, standards" }
+    },
+    "status_school": "INSA Hauts-de-France",
+    "status_location": "Timișoara, Romania",
+    "status_level": "4th Year — Internship"
+  },
+  "expertise": {
+    "section_label": "// 02 ——— EXPERTISE",
+    "headline_1": "Engineer's",
+    "headline_2": "toolkit.",
+    "categories": {
+      "cad": {
+        "label": "CAD / Modeling",
+        "title": "3D Design",
+        "tools": ["CATIA V5", "Fusion 360", "SolidWorks"]
+      },
+      "fea": {
+        "label": "Simulation / FEA",
+        "title": "Finite Element Analysis",
+        "tools": ["HyperMesh", "Simsolid", "ANSYS"]
+      },
+      "vr": {
+        "label": "Virtual Reality",
+        "title": "VR Environments",
+        "tools": ["Unity", "SteamVR SDK", "XR Toolkit"]
+      },
+      "imaging": {
+        "label": "Industrial Vision",
+        "title": "Image Processing",
+        "tools": ["OpenCV", "MATLAB", "ImageJ"]
+      },
+      "workflow": {
+        "label": "Methods",
+        "title": "Workflows",
+        "tools": ["GD&T", "FMEA", "Technical docs"]
+      }
+    },
+    "pillars": {
+      "rigor": { "title": "RIGOR", "desc": "Every analysis is grounded in verifiable assumptions and measurable data." },
+      "precision": { "title": "PRECISION", "desc": "Zero tolerance for design errors is a principle, not an aspiration." },
+      "innovation": { "title": "INNOVATION", "desc": "Integrating the most advanced digital tools into traditional industrial workflows." }
+    }
+  },
+  "experience": {
+    "section_label": "// 03 ——— EXPERIENCE",
+    "headline_1": "Field",
+    "headline_2": "experience.",
+    "entries": {
+      "timisoara": {
+        "company": "International Internship",
+        "role": "Engineering Intern",
+        "period": "May 2026 — Aug 2026",
+        "location": "Timișoara, Romania",
+        "description": "End-of-4th-year industrial internship. Immersion in an international industrial environment — applying simulation and analysis methods to real-world problems in a multicultural context.",
+        "tags": ["Simulation", "FEA", "International", "R&D"]
+      },
+      "novares": {
+        "company": "NOVARES",
+        "role": "Apprentice Engineer",
+        "period": "2024 — 2026",
+        "location": "France",
+        "description": "Mechanical engineering apprenticeship at a global Tier-1 automotive supplier. Material characterization, numerical simulation development and creation of reproducible industrial workflows.",
+        "tags": ["HyperMesh", "Simsolid", "CATIA", "FEA", "Materials"]
+      },
+      "vr_tech": {
+        "company": "VR Technician",
+        "role": "VR Environment Developer",
+        "period": "2023 — 2024",
+        "location": "France",
+        "description": "Design and deployment of immersive virtual reality environments for industrial training and ergonomic validation. CAD assembly import, physical interactions and haptic feedback integration.",
+        "tags": ["Unity", "VR", "SteamVR", "CAD Assets"]
+      },
+      "insa": {
+        "company": "INSA Hauts-de-France",
+        "role": "Engineering Student",
+        "period": "2021 — 2026",
+        "location": "Valenciennes, France",
+        "description": "General engineering degree with specialization in mechanics, thermics and industrial systems. Multidisciplinary projects, laboratory practical work and industrial case studies.",
+        "tags": ["Mechanics", "Thermics", "Stress Analysis", "Projects"]
+      }
+    }
+  },
+  "projects": {
+    "section_label": "// 04 ——— PROJECTS",
+    "headline_1": "What I",
+    "headline_2": "have built.",
+    "cta": "View project",
+    "specs_label": "SPECIFICATIONS",
+    "index_label": "PROJECT",
+    "items": [
+      {
+        "id": "fea-novares",
+        "number": "01",
+        "title": "FEA Analysis — Automotive Part",
+        "subtitle": "Mechanical stress simulation",
+        "description": "Finite element modeling and simulation of an automotive plastic component under dynamic loads. Geometry optimization based on simulation results to reduce mass while maintaining resistance criteria.",
+        "specs": [
+          { "label": "SOFTWARE", "value": "HyperMesh + Simsolid" },
+          { "label": "TYPE", "value": "FEA Simulation" },
+          { "label": "MATERIAL", "value": "Technical polymer" },
+          { "label": "REDUCTION", "value": "−12% mass" }
+        ],
+        "tags": ["FEA", "HyperMesh", "Simsolid", "NOVARES"],
+        "color": "#1a2035"
+      },
+      {
+        "id": "vr-industrial",
+        "number": "02",
+        "title": "Industrial VR Environment",
+        "subtitle": "Workstation simulation",
+        "description": "Development of an immersive virtual reality environment for ergonomic training and validation of an industrial workstation. CAD assembly import, physical interactions and haptic feedback.",
+        "specs": [
+          { "label": "ENGINE", "value": "Unity 2023 LTS" },
+          { "label": "SDK", "value": "SteamVR / XR Toolkit" },
+          { "label": "ASSETS", "value": "CATIA → FBX" },
+          { "label": "LATENCY", "value": "<18ms (90fps)" }
+        ],
+        "tags": ["Unity", "VR", "SteamVR", "Ergonomics"],
+        "color": "#0d1f2d"
+      },
+      {
+        "id": "material-characterization",
+        "number": "03",
+        "title": "Material Characterization",
+        "subtitle": "Rheological & mechanical analysis",
+        "description": "Mechanical characterization program for technical polymers used in the automotive industry. Tensile testing, rheological analysis and behavioral modeling to feed simulation databases.",
+        "specs": [
+          { "label": "METHOD", "value": "ISO standardized tests" },
+          { "label": "ANALYSIS", "value": "MATLAB + ImageJ" },
+          { "label": "MATERIALS", "value": "PP, PA6, ABS" },
+          { "label": "DELIVERABLES", "value": "Materials database" }
+        ],
+        "tags": ["Materials", "MATLAB", "ISO", "NOVARES"],
+        "color": "#1a1810"
+      }
+    ]
+  },
+  "skills": {
+    "section_label": "// 05 ——— SKILLS",
+    "headline_1": "Domains of",
+    "headline_2": "mastery.",
+    "level_labels": ["Notions", "Practice", "Mastery", "Expert"],
+    "domains": [
+      {
+        "category": "CAD & Modeling",
+        "items": [
+          { "name": "CATIA V5", "level": 4 },
+          { "name": "Fusion 360", "level": 3 },
+          { "name": "SolidWorks", "level": 3 }
+        ]
+      },
+      {
+        "category": "Simulation & FEA",
+        "items": [
+          { "name": "HyperMesh", "level": 4 },
+          { "name": "Simsolid", "level": 4 },
+          { "name": "ANSYS", "level": 2 }
+        ]
+      },
+      {
+        "category": "Virtual Reality",
+        "items": [
+          { "name": "Unity", "level": 3 },
+          { "name": "SteamVR SDK", "level": 3 },
+          { "name": "XR Toolkit", "level": 2 }
+        ]
+      },
+      {
+        "category": "Analysis & Processing",
+        "items": [
+          { "name": "MATLAB", "level": 3 },
+          { "name": "OpenCV", "level": 2 },
+          { "name": "ImageJ", "level": 3 }
+        ]
+      },
+      {
+        "category": "Industrial Methods",
+        "items": [
+          { "name": "GD&T / Tolerancing", "level": 3 },
+          { "name": "FMEA", "level": 3 },
+          { "name": "Technical docs.", "level": 4 }
+        ]
+      },
+      {
+        "category": "Materials Science",
+        "items": [
+          { "name": "Characterization", "level": 4 },
+          { "name": "Rheology", "level": 3 },
+          { "name": "Standardized testing", "level": 4 }
+        ]
+      }
+    ],
+    "tags": ["FEA","Stress Analysis","Thermics","Dynamics","GD&T","FMEA","CAD","CFD","VR","Ergonomics","Polymers","Composites","Fatigue","Optimization","ISO Standards","Manufacturing"]
+  },
+  "contact": {
+    "section_label": "// 06 ——— CONTACT",
+    "headline_1": "Let's build",
+    "headline_2": "together.",
+    "subline": "Available for opportunities, technical collaborations or discussions about engineering projects.",
+    "cta": "Send a message",
+    "email_label": "EMAIL",
+    "location_label": "CURRENTLY IN",
+    "location": "Timișoara, Romania",
+    "response_label": "RESPONSE WITHIN",
+    "response": "24 hours",
+    "availability_label": "AVAILABILITY",
+    "availability": "September 2026"
+  },
+  "footer": {
+    "tagline": "Designed with precision.",
+    "rights": "All rights reserved.",
+    "nav_label": "Navigation",
+    "built_with": "Built with Next.js · Deployed on Netlify"
+  }
+}

@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
+/* ─── DESIGN TOKENS ─────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary:    #09090C;
+  --bg-secondary:  #111318;
+  --bg-tertiary:   #181C23;
+  --bg-glass:      rgba(20, 24, 31, 0.75);
+  --text-primary:  #E6E9EF;
+  --text-secondary:#8C939F;
+  --text-muted:    #4A5260;
+  --text-accent:   #C5CAD3;
+  --accent-blue:   #3B82F6;
+  --accent-cyan:   #06B6D4;
+  --accent-amber:  #D97706;
+  --accent-silver: #9CA3AF;
+  --line-subtle:   rgba(255,255,255,0.055);
+  --line-medium:   rgba(255,255,255,0.10);
+  --line-bright:   rgba(255,255,255,0.20);
+  --glow-blue:     rgba(59,130,246,0.14);
+  --glow-cyan:     rgba(6,182,212,0.08);
+  --font-display:  var(--font-space-grotesk);
+  --font-body:     var(--font-inter);
+  --font-mono:     var(--font-jetbrains-mono);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (hover: none) { body { cursor: auto; } }
+
+::selection { background: rgba(59,130,246,0.25); color: var(--text-primary); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--line-medium); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--line-bright); }
+
+:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; border-radius: 2px; }
+
+.section-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 5rem);
+}
+
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--line-subtle);
+}
+
+.glass-strong {
+  background: rgba(24, 28, 35, 0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--line-medium);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 60%, var(--accent-silver) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.surface-metal {
+  background: linear-gradient(135deg, #1C2028 0%, #20262E 50%, #191E26 100%);
+}
+
+.section-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 2px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-silver);
+  background: rgba(255,255,255,0.025);
+  transition: border-color 0.2s var(--ease-standard), color 0.2s var(--ease-standard), background 0.2s;
+  white-space: nowrap;
+}
+
+.tech-tag:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background: var(--glow-blue);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 1; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(6px); opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

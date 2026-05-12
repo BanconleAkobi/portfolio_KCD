@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "title": "Carlos — Ingénieur Mécanique",
+    "description": "Étudiant ingénieur en mécanique à l'INSA Hauts-de-France. Spécialisé en simulation numérique, CAO, FEA et environnements VR industriels."
+  },
+  "nav": {
+    "about": "À propos",
+    "expertise": "Expertise",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "lang_switch": "EN",
+    "lang_switch_label": "Switch to English"
+  },
+  "hero": {
+    "badge": "Ingénieur Mécanique · INSA Hauts-de-France",
+    "headline_1": "Précision.",
+    "headline_2": "Simulation.",
+    "headline_3": "Innovation.",
+    "subline": "Étudiant ingénieur spécialisé en simulation industrielle, CAO et environnements VR.",
+    "cta_primary": "Voir les projets",
+    "cta_secondary": "Me contacter",
+    "scroll_hint": "Défiler",
+    "location": "Timișoara, Roumanie",
+    "location_label": "Actuellement à"
+  },
+  "about": {
+    "section_label": "// 01 ——— À PROPOS",
+    "headline_1": "Ingénieur en devenir,",
+    "headline_2": "penseur par vocation.",
+    "bio": "Apprenti ingénieur chez NOVARES et étudiant à l'INSA Hauts-de-France, je conçois et simule des systèmes mécaniques complexes. Ma démarche allie rigueur analytique, maîtrise des outils numériques avancés et curiosité pour les technologies émergentes — du FEA classique aux environnements de réalité virtuelle industrielle.",
+    "bio_2": "Actuellement en stage international à Timișoara, Roumanie, j'applique ces compétences à des problématiques industrielles réelles au sein d'un environnement multiculturel et exigeant.",
+    "disciplines": {
+      "simulation": { "title": "Simulation numérique", "desc": "FEA, dynamique des fluides, analyse des contraintes" },
+      "cad": { "title": "CAO & Conception 3D", "desc": "CATIA V5, Fusion 360, SolidWorks" },
+      "vr": { "title": "Réalité Virtuelle", "desc": "Environnements industriels sous Unity" },
+      "materials": { "title": "Science des matériaux", "desc": "Caractérisation, essais, rhéologie" },
+      "imaging": { "title": "Traitement d'image", "desc": "Analyse dimensionnelle, contrôle qualité" },
+      "methods": { "title": "Méthodes industrielles", "desc": "GD&T, documentation technique, normes" }
+    },
+    "status_school": "INSA Hauts-de-France",
+    "status_location": "Timișoara, Roumanie",
+    "status_level": "4ème année — Stage"
+  },
+  "expertise": {
+    "section_label": "// 02 ——— EXPERTISE",
+    "headline_1": "Boîte à outils",
+    "headline_2": "d'ingénieur.",
+    "categories": {
+      "cad": {
+        "label": "CAO / Modélisation",
+        "title": "Conception 3D",
+        "tools": ["CATIA V5", "Fusion 360", "SolidWorks"]
+      },
+      "fea": {
+        "label": "Simulation / FEA",
+        "title": "Analyse éléments finis",
+        "tools": ["HyperMesh", "Simsolid", "ANSYS"]
+      },
+      "vr": {
+        "label": "Réalité virtuelle",
+        "title": "Environnements VR",
+        "tools": ["Unity", "SteamVR SDK", "XR Toolkit"]
+      },
+      "imaging": {
+        "label": "Vision industrielle",
+        "title": "Traitement d'image",
+        "tools": ["OpenCV", "MATLAB", "ImageJ"]
+      },
+      "workflow": {
+        "label": "Méthodes",
+        "title": "Flux de travail",
+        "tools": ["GD&T", "AMDEC", "Documentation tech."]
+      }
+    },
+    "pillars": {
+      "rigor": { "title": "RIGUEUR", "desc": "Chaque analyse est fondée sur des hypothèses vérifiables et des données mesurables." },
+      "precision": { "title": "PRÉCISION", "desc": "La tolérance zéro sur les erreurs de conception est un principe, pas une aspiration." },
+      "innovation": { "title": "INNOVATION", "desc": "Intégrer les outils numériques les plus avancés dans les workflows industriels classiques." }
+    }
+  },
+  "experience": {
+    "section_label": "// 03 ——— EXPÉRIENCE",
+    "headline_1": "Expériences",
+    "headline_2": "de terrain.",
+    "entries": {
+      "timisoara": {
+        "company": "Stage International",
+        "role": "Ingénieur Stagiaire",
+        "period": "Mai 2026 — Août 2026",
+        "location": "Timișoara, Roumanie",
+        "description": "Stage industriel de fin de 4ème année. Immersion en environnement industriel international — application de méthodes de simulation et d'analyse dans un contexte réel et multiculturel.",
+        "tags": ["Simulation", "FEA", "International", "R&D"]
+      },
+      "novares": {
+        "company": "NOVARES",
+        "role": "Apprenti Ingénieur",
+        "period": "2024 — 2026",
+        "location": "France",
+        "description": "Apprentissage en ingénierie mécanique au sein d'un équipementier automobile de rang mondial. Caractérisation des matériaux, développement de simulations numériques et création de workflows industriels reproductibles.",
+        "tags": ["HyperMesh", "Simsolid", "CATIA", "FEA", "Matériaux"]
+      },
+      "vr_tech": {
+        "company": "Technicien VR",
+        "role": "Développeur Environnements VR",
+        "period": "2023 — 2024",
+        "location": "France",
+        "description": "Conception et déploiement d'environnements de réalité virtuelle à des fins industrielles et pédagogiques sous Unity. Intégration d'assets CAO dans des scènes interactives temps réel.",
+        "tags": ["Unity", "VR", "SteamVR", "Assets CAO"]
+      },
+      "insa": {
+        "company": "INSA Hauts-de-France",
+        "role": "Étudiant Ingénieur",
+        "period": "2021 — 2026",
+        "location": "Valenciennes, France",
+        "description": "Formation d'ingénieur généraliste avec spécialisation en mécanique, thermique et systèmes industriels. Projets pluridisciplinaires, travaux pratiques de laboratoire et études de cas industriels.",
+        "tags": ["Mécanique", "Thermique", "RDM", "Projets"]
+      }
+    }
+  },
+  "projects": {
+    "section_label": "// 04 ——— PROJETS",
+    "headline_1": "Ce que",
+    "headline_2": "j'ai construit.",
+    "cta": "Voir le projet",
+    "specs_label": "SPÉCIFICATIONS",
+    "index_label": "PROJET",
+    "items": [
+      {
+        "id": "fea-novares",
+        "number": "01",
+        "title": "Analyse FEA — Pièce Automobile",
+        "subtitle": "Simulation de contraintes mécaniques",
+        "description": "Modélisation et simulation par éléments finis d'une pièce plastique automobile soumise à des charges dynamiques. Optimisation géométrique basée sur les résultats de simulation pour réduire la masse tout en maintenant les critères de résistance.",
+        "specs": [
+          { "label": "LOGICIEL", "value": "HyperMesh + Simsolid" },
+          { "label": "TYPE", "value": "Simulation FEA" },
+          { "label": "MATÉRIAU", "value": "Polymère technique" },
+          { "label": "RÉDUCTION", "value": "−12% masse" }
+        ],
+        "tags": ["FEA", "HyperMesh", "Simsolid", "NOVARES"],
+        "color": "#1a2035"
+      },
+      {
+        "id": "vr-industrial",
+        "number": "02",
+        "title": "Environnement VR Industriel",
+        "subtitle": "Simulation de poste de travail",
+        "description": "Développement d'un environnement de réalité virtuelle immersif pour la formation et la validation ergonomique d'un poste de travail industriel. Import d'assemblages CAO, interactions physiques et retour haptique.",
+        "specs": [
+          { "label": "MOTEUR", "value": "Unity 2023 LTS" },
+          { "label": "SDK", "value": "SteamVR / XR Toolkit" },
+          { "label": "ASSETS", "value": "CATIA → FBX" },
+          { "label": "LATENCE", "value": "<18ms (90fps)" }
+        ],
+        "tags": ["Unity", "VR", "SteamVR", "Ergonomie"],
+        "color": "#0d1f2d"
+      },
+      {
+        "id": "material-characterization",
+        "number": "03",
+        "title": "Caractérisation Matériaux",
+        "subtitle": "Analyse rhéologique et mécanique",
+        "description": "Programme de caractérisation mécanique de polymères techniques destinés à l'industrie automobile. Essais de traction, analyse rhéologique et modélisation du comportement pour alimenter les bases de données de simulation.",
+        "specs": [
+          { "label": "MÉTHODE", "value": "Essais normalisés ISO" },
+          { "label": "ANALYSE", "value": "MATLAB + ImageJ" },
+          { "label": "MATÉRIAUX", "value": "PP, PA6, ABS" },
+          { "label": "LIVRABLES", "value": "Base de données matériaux" }
+        ],
+        "tags": ["Matériaux", "MATLAB", "ISO", "NOVARES"],
+        "color": "#1a1810"
+      }
+    ]
+  },
+  "skills": {
+    "section_label": "// 05 ——— COMPÉTENCES",
+    "headline_1": "Domaines",
+    "headline_2": "de maîtrise.",
+    "level_labels": ["Notions", "Pratique", "Maîtrise", "Expert"],
+    "domains": [
+      {
+        "category": "CAO & Modélisation",
+        "items": [
+          { "name": "CATIA V5", "level": 4 },
+          { "name": "Fusion 360", "level": 3 },
+          { "name": "SolidWorks", "level": 3 }
+        ]
+      },
+      {
+        "category": "Simulation & FEA",
+        "items": [
+          { "name": "HyperMesh", "level": 4 },
+          { "name": "Simsolid", "level": 4 },
+          { "name": "ANSYS", "level": 2 }
+        ]
+      },
+      {
+        "category": "Réalité Virtuelle",
+        "items": [
+          { "name": "Unity", "level": 3 },
+          { "name": "SteamVR SDK", "level": 3 },
+          { "name": "XR Toolkit", "level": 2 }
+        ]
+      },
+      {
+        "category": "Analyse & Traitement",
+        "items": [
+          { "name": "MATLAB", "level": 3 },
+          { "name": "OpenCV", "level": 2 },
+          { "name": "ImageJ", "level": 3 }
+        ]
+      },
+      {
+        "category": "Méthodes industrielles",
+        "items": [
+          { "name": "GD&T / Cotation", "level": 3 },
+          { "name": "AMDEC", "level": 3 },
+          { "name": "Documentation tech.", "level": 4 }
+        ]
+      },
+      {
+        "category": "Sciences des matériaux",
+        "items": [
+          { "name": "Caractérisation", "level": 4 },
+          { "name": "Rhéologie", "level": 3 },
+          { "name": "Essais normalisés", "level": 4 }
+        ]
+      }
+    ],
+    "tags": ["FEA","RDM","Thermique","Dynamique","GD&T","AMDEC","CAO","CFD","VR","Ergonomie","Polymères","Composites","Fatigue","Optimisation","Normes ISO","Procédés"]
+  },
+  "contact": {
+    "section_label": "// 06 ——— CONTACT",
+    "headline_1": "Construisons",
+    "headline_2": "ensemble.",
+    "subline": "Disponible pour des opportunités, des collaborations techniques ou des échanges sur des projets d'ingénierie.",
+    "cta": "Envoyer un message",
+    "email_label": "EMAIL",
+    "location_label": "ACTUELLEMENT À",
+    "location": "Timișoara, Roumanie",
+    "response_label": "RÉPONSE SOUS",
+    "response": "24 heures",
+    "availability_label": "DISPONIBILITÉ",
+    "availability": "Septembre 2026"
+  },
+  "footer": {
+    "tagline": "Conçu avec précision.",
+    "rights": "Tous droits réservés.",
+    "nav_label": "Navigation",
+    "built_with": "Construit avec Next.js · Déployé sur Netlify"
+  }
+}
