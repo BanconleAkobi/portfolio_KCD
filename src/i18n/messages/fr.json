@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Carlos · Ingénieur Mécanique",
-    "description": "Étudiant ingénieur en mécanique à l'INSA Hauts-de-France. Spécialisé en simulation numérique, CAO, FEA et environnements VR industriels."
+    "title": "Kibalo Carlos DAO · Ingénieur Mécanique",
+    "description": "Kibalo Carlos DAO, étudiant ingénieur en mécanique à l'INSA Hauts-de-France. Spécialisé en simulation numérique, CAO, FEA et environnements VR industriels."
   },
   "nav": {
     "about": "À propos",
@@ -14,6 +14,8 @@
     "lang_switch_label": "Switch to English"
   },
   "hero": {
+    "name": "Kibalo Carlos DAO",
+    "role": "Ingénieur Mécanique",
     "badge": "Ingénieur Mécanique · INSA Hauts-de-France",
     "headline_1": "Précision.",
     "headline_2": "Simulation.",

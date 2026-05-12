@@ -17,17 +17,6 @@ export function BlueprintCorners({
 }) {
   const s = `${size}px`;
   const c = color;
-  const corner = (pos: string) => (
-    <span
-      aria-hidden="true"
-      className={cn("absolute pointer-events-none", pos)}
-      style={{
-        width: s,
-        height: s,
-        borderColor: c,
-      }}
-    />
-  );
   return (
     <div
       aria-hidden="true"
@@ -50,7 +39,6 @@ export function BlueprintCorners({
         className="absolute bottom-0 right-0"
         style={{ width: s, height: s, borderBottom: `1px solid ${c}`, borderRight: `1px solid ${c}` }}
       />
-      {corner /* tsx noop */ && null}
     </div>
   );
 }

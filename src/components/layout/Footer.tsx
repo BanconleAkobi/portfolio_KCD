@@ -26,7 +26,7 @@ export default function Footer() {
                 <span className="font-mono text-sm font-bold text-[var(--accent-blue)]">K</span>
               </div>
               <span className="font-mono text-xs tracking-[0.18em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">
-                Carlos
+                Kibalo Carlos DAO
               </span>
             </Link>
             <p className="font-mono text-xs text-[var(--text-muted)] leading-relaxed">
@@ -56,7 +56,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <span className="font-mono text-xs text-[var(--text-muted)]">
-            © {new Date().getFullYear()} Carlos · {t("rights")}
+            © {new Date().getFullYear()} Kibalo Carlos DAO · {t("rights")}
           </span>
           <span className="font-mono text-xs text-[var(--text-muted)]">
             {t("built_with")}

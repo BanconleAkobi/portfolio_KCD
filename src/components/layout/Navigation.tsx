@@ -59,7 +59,7 @@ export default function Navigation() {
                 <span className="font-mono text-xs font-bold text-[var(--accent-blue)]">K</span>
               </div>
               <span className="hidden sm:block font-mono text-xs tracking-[0.18em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors duration-200">
-                Carlos
+                Kibalo Carlos DAO
               </span>
             </Link>
 

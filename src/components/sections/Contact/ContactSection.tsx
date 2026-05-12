@@ -116,7 +116,7 @@ export default function ContactSection() {
               {/* Signature en bas */}
               <div className="pt-6 border-t border-[var(--line-subtle)] flex items-center justify-between">
                 <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-[var(--text-muted)]">
-                  Signé · Carlos
+                  Signé · Kibalo Carlos DAO
                 </span>
                 <div className="flex gap-1.5">
                   {Array.from({ length: 4 }).map((_, j) => (

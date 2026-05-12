@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Carlos · Mechanical Engineer",
-    "description": "Mechanical engineering student at INSA Hauts-de-France. Specialized in numerical simulation, CAD, FEA and industrial VR environments."
+    "title": "Kibalo Carlos DAO · Mechanical Engineer",
+    "description": "Kibalo Carlos DAO, mechanical engineering student at INSA Hauts-de-France. Specialized in numerical simulation, CAD, FEA and industrial VR environments."
   },
   "nav": {
     "about": "About",
@@ -14,6 +14,8 @@
     "lang_switch_label": "Passer en français"
   },
   "hero": {
+    "name": "Kibalo Carlos DAO",
+    "role": "Mechanical Engineer",
     "badge": "Mechanical Engineer · INSA Hauts-de-France",
     "headline_1": "Precision.",
     "headline_2": "Simulation.",

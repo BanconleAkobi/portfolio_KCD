@@ -41,13 +41,22 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="flex items-center gap-3"
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              className="flex flex-col gap-3"
             >
-              <span className="block w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-[pulseGlow_2s_ease-in-out_infinite]" />
-              <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-[var(--accent-blue)]">
-                {t("badge")}
-              </span>
+              {/* Nom complet en signature */}
+              <div className="flex items-center gap-3">
+                <span className="block w-6 h-px bg-[var(--accent-blue)]" />
+                <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[var(--text-secondary)]">
+                  {t("name")}
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="block w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-[pulseGlow_2s_ease-in-out_infinite]" />
+                <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-[var(--accent-blue)]">
+                  {t("badge")}
+                </span>
+              </div>
             </motion.div>
 
             <div className="flex flex-col">
