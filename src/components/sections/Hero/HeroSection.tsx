@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { staggerContainer, heroWord, fadeIn, scrollViewport } from "@/lib/animations";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const MechanicalWireframe = dynamic(
@@ -10,188 +10,148 @@ const MechanicalWireframe = dynamic(
   { ssr: false, loading: () => null }
 );
 
-const HEADLINE_KEYS = ["headline_1", "headline_2", "headline_3"] as const;
-
 export default function HeroSection() {
   const t = useTranslations("hero");
 
-  function scrollToProjects() {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  }
-  function scrollToContact() {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  }
-
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      aria-label="Hero"
-    >
-      {/* Background radial glow */}
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      {/* Grille technique */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 75% 50%, rgba(59,130,246,0.04) 0%, transparent 70%)",
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
         }}
       />
-
-      {/* Grid overlay — very subtle technical aesthetic */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[55vw] h-[80vh] pointer-events-none"
         aria-hidden="true"
         style={{
-          backgroundImage:
-            "linear-gradient(var(--line-bright) 1px, transparent 1px), linear-gradient(90deg, var(--line-bright) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          background: "radial-gradient(ellipse at center, rgba(59,130,246,0.06) 0%, transparent 65%)",
         }}
       />
 
-      <div className="section-container w-full pt-24 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center min-h-[calc(100vh-96px)]">
+      <div className="section-container relative z-10 py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0 items-center">
 
-          {/* LEFT — Text content */}
-          <div className="flex flex-col justify-center gap-8 lg:pr-12">
-
-            {/* Badge */}
+          {/* GAUCHE — Texte */}
+          <div className="flex flex-col gap-10">
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
               className="flex items-center gap-3"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-[pulseGlow_2s_ease-in-out_infinite]" />
-              <span className="font-mono text-xs tracking-[0.15em] uppercase text-[var(--accent-blue)]">
+              <span className="block w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-[pulseGlow_2s_ease-in-out_infinite]" />
+              <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-[var(--accent-blue)]">
                 {t("badge")}
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <motion.div
-              variants={staggerContainer(0.12, 0.2)}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col gap-1"
-            >
-              {HEADLINE_KEYS.map((key, i) => (
-                <div key={key} className="overflow-hidden">
-                  <motion.h1
-                    variants={heroWord}
-                    className={cn(
-                      "font-display font-bold leading-[0.95] tracking-[-0.03em]",
-                      "text-[clamp(3rem,7vw,6.5rem)]",
-                      i === 0 && "text-[var(--text-primary)]",
-                      i === 1 && "gradient-text",
-                      i === 2 && "text-[var(--text-secondary)]"
-                    )}
-                  >
-                    {t(key)}
-                  </motion.h1>
-                </div>
+            <div className="flex flex-col">
+              {(["headline_1", "headline_2", "headline_3"] as const).map((key, i) => (
+                <motion.h1
+                  key={key}
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.75,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 0.25 + i * 0.12,
+                  }}
+                  className={cn(
+                    "font-display leading-[1.05] tracking-[-0.005em]",
+                    "text-[clamp(2.75rem,6.5vw,5.5rem)]",
+                    i === 2
+                      ? "font-light italic text-[var(--text-secondary)]"
+                      : "font-semibold text-[var(--text-primary)]"
+                  )}
+                >
+                  {t(key)}
+                </motion.h1>
               ))}
-            </motion.div>
+            </div>
 
-            {/* Subline */}
             <motion.p
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.7 }}
-              className="font-body text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
+              className="font-body font-light text-[var(--text-secondary)] text-lg leading-relaxed max-w-sm"
             >
               {t("subline")}
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <button
-                onClick={scrollToProjects}
-                className={cn(
-                  "inline-flex items-center gap-3 px-6 py-3.5",
-                  "font-body font-medium text-sm",
-                  "bg-[var(--accent-blue)] text-white",
-                  "hover:bg-blue-500",
-                  "rounded-sm transition-all duration-200",
-                  "shadow-glow-blue-sm hover:shadow-glow-blue"
-                )}
+              <Link
+                href="/projects"
+                className="cursor-pointer inline-flex items-center gap-3 px-7 py-3.5 bg-[var(--accent-blue)] text-white font-body font-medium text-sm hover:bg-blue-500 transition-colors duration-200 shadow-[0_0_24px_-4px_rgba(59,130,246,0.5)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-blue)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
               >
                 {t("cta_primary")}
-                <span className="text-sm opacity-80">→</span>
-              </button>
-
-              <button
-                onClick={scrollToContact}
-                className={cn(
-                  "inline-flex items-center gap-3 px-6 py-3.5",
-                  "font-body font-medium text-sm",
-                  "bg-transparent border border-[var(--line-medium)]",
-                  "text-[var(--text-secondary)] hover:text-[var(--text-primary)]",
-                  "hover:border-[var(--line-bright)]",
-                  "rounded-sm transition-all duration-200"
-                )}
+                <span className="opacity-75 text-xs">→</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="cursor-pointer inline-flex items-center gap-3 px-7 py-3.5 bg-transparent border border-[var(--line-medium)] text-[var(--text-secondary)] font-body font-medium text-sm hover:border-[var(--line-bright)] hover:text-[var(--text-primary)] transition-all duration-200 outline-none focus-visible:border-[var(--accent-blue)]"
               >
                 {t("cta_secondary")}
-              </button>
+              </Link>
             </motion.div>
 
-            {/* Location badge */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.1, duration: 0.5 }}
-              className="flex items-center gap-3 mt-2"
+              transition={{ delay: 1.0, duration: 0.5 }}
+              className="flex items-center gap-3 pt-2"
             >
-              <div className="h-px w-8 bg-[var(--line-subtle)]" />
-              <span className="font-mono text-xs text-[var(--text-muted)] tracking-wider">
-                {t("location_label")} <span className="text-[var(--text-secondary)]">{t("location")}</span>
+              <div className="w-6 h-px bg-[var(--line-subtle)]" />
+              <span className="font-mono text-[10px] text-[var(--text-muted)] tracking-wider uppercase">
+                {t("location_label")}
+              </span>
+              <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-wider">
+                {t("location")}
               </span>
             </motion.div>
           </div>
 
-          {/* RIGHT — 3D Canvas */}
+          {/* DROITE — Gyroscope */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-            className="hidden lg:flex items-center justify-center h-[70vh] max-h-[600px] relative"
+            transition={{ duration: 1.4, delay: 0.4 }}
+            className="hidden lg:flex items-center justify-center h-[60vh] max-h-[560px] relative"
           >
-            {/* Subtle background ring */}
             <div
-              className="absolute inset-0 rounded-full blur-3xl pointer-events-none"
-              style={{
-                background: "radial-gradient(circle at center, rgba(59,130,246,0.06) 0%, transparent 70%)",
-              }}
+              className="absolute inset-0 pointer-events-none rounded-full"
+              style={{ background: "radial-gradient(circle at center, rgba(59,130,246,0.08) 0%, transparent 65%)" }}
             />
             <MechanicalWireframe />
 
-            {/* Technical annotation overlay */}
-            <div className="absolute bottom-8 right-4 font-mono text-[10px] text-[var(--text-muted)] text-right space-y-1 pointer-events-none select-none">
-              <div>ASSEMBLY·VIEW</div>
-              <div className="text-[var(--accent-blue)] opacity-60">REV·A</div>
+            <div className="absolute bottom-10 right-6 font-mono text-[9px] text-[var(--text-muted)] text-right space-y-0.5 pointer-events-none select-none opacity-60">
+              <div>INERTIAL·UNIT</div>
+              <div className="text-[var(--accent-blue)]">REV A · 2026</div>
             </div>
-            <div className="absolute top-8 left-4 font-mono text-[10px] text-[var(--text-muted)] space-y-1 pointer-events-none select-none">
-              <div>Ø 2.2 REF</div>
-              <div>±0.005</div>
+            <div className="absolute top-10 left-6 font-mono text-[9px] text-[var(--text-muted)] space-y-0.5 pointer-events-none select-none opacity-60">
+              <div>Ø 4.4 REF</div>
+              <div>±0.002</div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        transition={{ delay: 1.4, duration: 0.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--text-muted)]">
+        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[var(--text-muted)]">
           {t("scroll_hint")}
         </span>
         <div className="w-px h-10 bg-gradient-to-b from-[var(--line-medium)] to-transparent animate-[scrollBounce_2s_ease-in-out_infinite]" />

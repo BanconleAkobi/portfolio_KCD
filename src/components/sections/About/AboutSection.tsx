@@ -1,155 +1,136 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import SectionLabel from "@/components/ui/SectionLabel";
-import HairlineDivider from "@/components/ui/HairlineDivider";
 import { fadeUp, staggerContainer, scrollViewport } from "@/lib/animations";
 
-const DISCIPLINE_KEYS = ["simulation", "cad", "vr", "materials", "imaging", "methods"] as const;
+const DISCIPLINES = ["simulation", "cad", "vr", "materials", "imaging", "methods"] as const;
 
-const DISCIPLINE_ICONS: Record<string, string> = {
-  simulation: "∿",
-  cad: "⬡",
-  vr: "◈",
-  materials: "⬟",
-  imaging: "◎",
-  methods: "⊕",
-};
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function AboutSection() {
   const t = useTranslations("about");
 
-  const statusItems = [
-    { label: "FORMATION", value: t("status_school") },
-    { label: "LOCALISATION", value: t("status_location") },
-    { label: "NIVEAU", value: t("status_level") },
-  ];
-
   return (
-    <section id="about" className="py-28 lg:py-36 bg-[var(--bg-secondary)]">
-      <div className="section-container">
+    <section className="relative py-24 lg:py-32 bg-[var(--bg-secondary)]">
+      <div className="section-container relative z-10">
 
-        <SectionLabel label={t("section_label")} className="mb-16" />
+        {/* Header de section */}
+        <div className="flex items-center gap-4 mb-14 lg:mb-16">
+          <span className="font-mono text-[10px] tracking-[0.18em] text-[var(--accent-blue)]">REF · 01.A</span>
+          <div className="flex-1 h-px bg-[var(--line-subtle)]" />
+          <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--text-muted)] hidden md:inline">
+            Profil ingénieur
+          </span>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
 
-          {/* LEFT — Bio */}
-          <div className="flex flex-col gap-8">
-            <div className="overflow-hidden">
-              <motion.h2
-                initial={{ y: "105%", opacity: 0 }}
-                whileInView={{ y: "0%", opacity: 1 }}
-                viewport={scrollViewport}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display font-bold leading-[1.05] tracking-tight text-[clamp(2rem,4vw,3.25rem)] text-[var(--text-primary)]"
-              >
-                {t("headline_1")}
-              </motion.h2>
-            </div>
-            <div className="overflow-hidden -mt-4">
-              <motion.h2
-                initial={{ y: "105%", opacity: 0 }}
-                whileInView={{ y: "0%", opacity: 1 }}
-                viewport={scrollViewport}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-                className="font-display font-bold leading-[1.05] tracking-tight text-[clamp(2rem,4vw,3.25rem)] text-[var(--text-secondary)]"
-              >
-                {t("headline_2")}
-              </motion.h2>
-            </div>
-
-            <motion.div
-              variants={staggerContainer(0.15, 0.3)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              className="flex flex-col gap-5"
-            >
-              <motion.p variants={fadeUp} className="font-body text-[var(--text-secondary)] leading-relaxed text-[17px]">
-                {t("bio")}
-              </motion.p>
-              <motion.p variants={fadeUp} className="font-body text-[var(--text-muted)] leading-relaxed text-base">
-                {t("bio_2")}
-              </motion.p>
-            </motion.div>
-
-            {/* Status strip */}
+          {/* GAUCHE — Bio + statuts */}
+          <div className="lg:col-span-5 flex flex-col gap-10">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={scrollViewport}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-4 grid grid-cols-3 gap-0 border border-[var(--line-subtle)] rounded-sm overflow-hidden"
+              transition={{ duration: 0.6, ease: EASE }}
+              className="flex flex-col gap-2"
             >
-              {statusItems.map((item, i) => (
-                <div
-                  key={item.label}
-                  className={`p-4 flex flex-col gap-1.5 ${i < 2 ? "border-r border-[var(--line-subtle)]" : ""}`}
-                >
-                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-[var(--text-muted)]">
-                    {item.label}
-                  </span>
-                  <span className="font-body text-xs text-[var(--text-secondary)] leading-tight">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
+              <h2 className="font-display font-semibold text-[clamp(1.75rem,3.4vw,2.75rem)] tracking-[-0.005em] leading-[1.1] text-[var(--text-primary)]">
+                {t("headline_1")}
+              </h2>
+              <h2 className="font-display font-light text-[clamp(1.75rem,3.4vw,2.75rem)] tracking-[-0.005em] leading-[1.1] text-[var(--text-secondary)]">
+                {t("headline_2")}
+              </h2>
             </motion.div>
-          </div>
-
-          {/* RIGHT — Disciplines grid */}
-          <div className="flex flex-col gap-6">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={scrollViewport}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-mono text-xs tracking-widest uppercase text-[var(--text-muted)]"
-            >
-              DOMAINES D'EXPERTISE
-            </motion.p>
 
             <motion.div
-              variants={staggerContainer(0.07, 0.25)}
+              variants={staggerContainer(0.12, 0.2)}
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
-              className="grid grid-cols-2 gap-0 border border-[var(--line-subtle)] rounded-sm overflow-hidden"
+              className="flex flex-col gap-5 relative pl-6 border-l border-[var(--line-subtle)]"
             >
-              {DISCIPLINE_KEYS.map((key, i) => (
-                <motion.div
-                  key={key}
-                  variants={fadeUp}
-                  className={`
-                    p-5 flex flex-col gap-3 transition-all duration-300 group cursor-default
-                    hover:bg-[var(--bg-tertiary)]
-                    ${i % 2 === 0 ? "border-r border-[var(--line-subtle)]" : ""}
-                    ${i < 4 ? "border-b border-[var(--line-subtle)]" : ""}
-                  `}
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="text-lg text-[var(--text-muted)] group-hover:text-[var(--accent-blue)] transition-colors duration-200 font-mono"
-                      aria-hidden="true"
-                    >
-                      {DISCIPLINE_ICONS[key]}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">
-                      {key.toUpperCase()}
-                    </span>
+              <span aria-hidden="true" className="absolute top-1 -left-[3px] w-1.5 h-1.5 bg-[var(--accent-blue)] rounded-full" />
+              <motion.p variants={fadeUp} className="font-body font-light text-[var(--text-secondary)] leading-[1.75] text-[17px]">
+                {t("bio")}
+              </motion.p>
+              <motion.p variants={fadeUp} className="font-body font-light text-[var(--text-muted)] leading-[1.75] text-base">
+                {t("bio_2")}
+              </motion.p>
+            </motion.div>
+
+            {/* Cartouche statuts */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={scrollViewport}
+              transition={{ duration: 0.55, delay: 0.3 }}
+              className="mt-2 border border-[var(--line-medium)]"
+            >
+              <div className="grid grid-cols-3 divide-x divide-[var(--line-subtle)]">
+                {[
+                  { label: "FORMATION", value: t("status_school") },
+                  { label: "LIEU",      value: t("status_location") },
+                  { label: "NIVEAU",    value: t("status_level") },
+                ].map(({ label, value }) => (
+                  <div key={label} className="px-4 py-4 flex flex-col gap-2 min-w-0">
+                    <span className="font-mono text-[9px] tracking-[0.16em] uppercase text-[var(--text-muted)]">{label}</span>
+                    <span className="font-body font-normal text-xs text-[var(--text-secondary)] leading-tight truncate">{value}</span>
                   </div>
-                  <div>
-                    <p className="font-body font-medium text-sm text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors leading-snug mb-1">
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* DROITE — Disciplines */}
+          <div className="lg:col-span-7 flex flex-col gap-6 lg:pl-6">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--text-muted)]">
+                Domaines
+              </span>
+              <span className="font-mono text-[10px] text-[var(--accent-blue)]">
+                · {String(DISCIPLINES.length).padStart(2, "0")} unités
+              </span>
+              <div className="flex-1 h-px bg-[var(--line-subtle)]" />
+            </div>
+
+            <motion.div
+              variants={staggerContainer(0.06, 0.15)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              className="grid grid-cols-1 sm:grid-cols-2 border border-[var(--line-medium)]"
+            >
+              {DISCIPLINES.map((key, i) => {
+                const isRight = i % 2 === 1;
+                const isLastRow = i >= DISCIPLINES.length - 2;
+                return (
+                  <motion.div
+                    key={key}
+                    variants={fadeUp}
+                    className={`
+                      relative p-5 lg:p-6 flex flex-col gap-3 group cursor-default
+                      hover:bg-[var(--bg-primary)] transition-colors duration-300
+                      ${!isRight ? "sm:border-r border-[var(--line-subtle)]" : ""}
+                      ${!isLastRow ? "border-b border-[var(--line-subtle)]" : ""}
+                    `}
+                  >
+                    <span className="absolute top-2 right-3 font-mono text-[9px] tracking-[0.16em] text-[var(--text-muted)] opacity-60">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-px bg-[var(--accent-blue)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                    </div>
+
+                    <p className="font-body font-medium text-[15px] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors leading-snug">
                       {t(`disciplines.${key}.title`)}
                     </p>
-                    <p className="font-body text-xs text-[var(--text-muted)] leading-relaxed">
+                    <p className="font-mono text-[10px] text-[var(--text-muted)] leading-relaxed tracking-wide">
                       {t(`disciplines.${key}.desc`)}
                     </p>
-                  </div>
-                  {/* Bottom accent line */}
-                  <div className="h-px bg-[var(--accent-blue)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </div>
         </div>

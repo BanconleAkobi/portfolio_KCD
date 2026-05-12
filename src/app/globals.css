@@ -1,10 +1,57 @@
 @import "tailwindcss";
 
-/* ─── DESIGN TOKENS ─────────────────────────────────────────────── */
+/* ─── TAILWIND v4 @THEME ─────────────────────────────────────────────
+   Tailwind v4 (avec @tailwindcss/postcss) ne lit PAS tailwind.config.ts.
+   Tous les tokens custom doivent vivre ici sous --color-*, --font-*,
+   --spacing-*, --text-*, --shadow-*, --animate-*, --ease-*, etc.
+   pour générer les utilitaires correspondants.
+─────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Fonts → utilities font-display / font-body / font-mono */
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-body:    var(--font-manrope), system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Colors → utilities bg-bg-primary, text-text-secondary, border-line-subtle, etc. */
+  --color-bg-primary:    #0C0D11;
+  --color-bg-secondary:  #15171D;
+  --color-bg-tertiary:   #1D2128;
+  --color-bg-glass:      rgba(20, 24, 31, 0.75);
+
+  --color-text-primary:   #E6E9EF;
+  --color-text-secondary: #8C939F;
+  --color-text-muted:     #4A5260;
+  --color-text-accent:    #C5CAD3;
+
+  --color-accent-blue:   #3B82F6;
+  --color-accent-cyan:   #06B6D4;
+  --color-accent-amber:  #D97706;
+  --color-accent-silver: #9CA3AF;
+
+  --color-line-subtle: rgba(255,255,255,0.055);
+  --color-line-medium: rgba(255,255,255,0.10);
+  --color-line-bright: rgba(255,255,255,0.20);
+
+  /* Easings → utilities ease-out-expo, ease-in-out-expo */
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-standard:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Animations */
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-float:      float 7s ease-in-out infinite;
+  --animate-spin-slow:  spin 25s linear infinite;
+  --animate-blink:      blink 1.2s step-end infinite;
+
+  /* Max widths supplémentaires */
+  --container-8xl: 88rem;
+}
+
+/* ─── DESIGN TOKENS (alias :root pour arbitrary values `[var(--…)]`) ─ */
 :root {
-  --bg-primary:    #09090C;
-  --bg-secondary:  #111318;
-  --bg-tertiary:   #181C23;
+  --bg-primary:    #0C0D11;
+  --bg-secondary:  #15171D;
+  --bg-tertiary:   #1D2128;
   --bg-glass:      rgba(20, 24, 31, 0.75);
   --text-primary:  #E6E9EF;
   --text-secondary:#8C939F;
@@ -19,31 +66,64 @@
   --line-bright:   rgba(255,255,255,0.20);
   --glow-blue:     rgba(59,130,246,0.14);
   --glow-cyan:     rgba(6,182,212,0.08);
-  --font-display:  var(--font-space-grotesk);
-  --font-body:     var(--font-inter);
-  --font-mono:     var(--font-jetbrains-mono);
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+/* ─── BASE ──────────────────────────────────────────────────────────
+   On laisse Tailwind v4 preflight gérer le reset. On AJOUTE juste les
+   defaults projet (couleurs, fonts, antialiasing) sans repartir d'un
+   `* { margin:0; padding:0 }` agressif qui casse les listes.
+─────────────────────────────────────────────────────────────────── */
 html {
-  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: auto;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
 }
 
-@media (hover: none) { body { cursor: auto; } }
+/* Le curseur custom est progressive enhancement — on ne masque le
+   curseur natif QUE quand le custom est actif (classe ajoutée par JS). */
+html.has-custom-cursor,
+html.has-custom-cursor body {
+  cursor: none;
+}
+html.has-custom-cursor a,
+html.has-custom-cursor button,
+html.has-custom-cursor [role="button"],
+html.has-custom-cursor input,
+html.has-custom-cursor textarea,
+html.has-custom-cursor select,
+html.has-custom-cursor label {
+  cursor: none;
+}
+@media (hover: none) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body { cursor: auto; }
+}
+
+/* Listes lisibles par défaut (preflight v4 les neutralise) */
+.prose ul, .prose ol,
+main ul:not([class*="list-"]):not([class*="flex"]):not([class*="grid"]),
+main ol:not([class*="list-"]):not([class*="flex"]):not([class*="grid"]) {
+  list-style: revert;
+  padding-left: 1.25rem;
+}
+main ul li + li,
+main ol li + li { margin-top: 0.35rem; }
+
+/* Titres : line-height plus serré que body par défaut */
+h1, h2, h3, h4 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
 
 ::selection { background: rgba(59,130,246,0.25); color: var(--text-primary); }
 
@@ -54,6 +134,7 @@ body {
 
 :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; border-radius: 2px; }
 
+/* ─── LAYOUT UTILITIES ─────────────────────────────────────────────── */
 .section-container {
   width: 100%;
   max-width: 80rem;
@@ -69,29 +150,14 @@ body {
 }
 
 .glass-strong {
-  background: rgba(24, 28, 35, 0.92);
+  background: rgba(13, 15, 20, 0.85);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid var(--line-medium);
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 60%, var(--accent-silver) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .surface-metal {
   background: linear-gradient(135deg, #1C2028 0%, #20262E 50%, #191E26 100%);
-}
-
-.section-label {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
 }
 
 .tech-tag {
@@ -100,12 +166,14 @@ body {
   padding: 0.25rem 0.625rem;
   border: 1px solid var(--line-subtle);
   border-radius: 2px;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   color: var(--accent-silver);
   background: rgba(255,255,255,0.025);
-  transition: border-color 0.2s var(--ease-standard), color 0.2s var(--ease-standard), background 0.2s;
+  transition: border-color 0.2s var(--ease-standard),
+              color 0.2s var(--ease-standard),
+              background 0.2s var(--ease-standard);
   white-space: nowrap;
 }
 
@@ -115,19 +183,22 @@ body {
   background: var(--glow-blue);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
-}
-
+/* ─── KEYFRAMES ────────────────────────────────────────────────────── */
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.35; }
-  50%       { opacity: 1; }
+  50%      { opacity: 1; }
 }
-
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(6px); opacity: 0.4; }
+  50%      { transform: translateY(6px); opacity: 0.4; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

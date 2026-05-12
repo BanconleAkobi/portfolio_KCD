@@ -1,27 +1,19 @@
-import Navigation from "@/components/layout/Navigation";
-import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/Hero/HeroSection";
-import AboutSection from "@/components/sections/About/AboutSection";
-import ExpertiseSection from "@/components/sections/Expertise/ExpertiseSection";
-import ExperienceSection from "@/components/sections/Experience/ExperienceSection";
-import ProjectsSection from "@/components/sections/Projects/ProjectsSection";
-import SkillsSection from "@/components/sections/Skills/SkillsSection";
-import ContactSection from "@/components/sections/Contact/ContactSection";
+import PageNav from "@/components/layout/PageNav";
+import { getTranslations } from "next-intl/server";
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
+
   return (
     <>
-      <Navigation />
-      <main id="main-content">
-        <HeroSection />
-        <AboutSection />
-        <ExpertiseSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
-      </main>
-      <Footer />
+      <HeroSection />
+      <PageNav
+        nextHref="/about"
+        nextIndex={t("section_index")}
+        nextLabel={t("page_title")}
+      />
     </>
   );
 }

@@ -1,215 +1,131 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
+import { motion } from "framer-motion";
 import TechTag from "@/components/ui/TechTag";
-import { fadeUp, staggerContainer, scrollViewport } from "@/lib/animations";
+import { RulerMarks } from "@/components/ui/Mechanical";
 
 const ENTRY_KEYS = ["timisoara", "novares", "vr_tech", "insa"] as const;
 
 export default function ExperienceSection() {
   const t = useTranslations("experience");
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="py-28 lg:py-36 bg-[var(--bg-secondary)]" ref={containerRef}>
-      <div className="section-container">
-
-        <SectionLabel label={t("section_label")} className="mb-16" />
-
-        {/* Headline */}
-        <div className="mb-16 flex flex-col gap-1">
-          <div className="overflow-hidden">
-            <motion.h2
-              initial={{ y: "105%", opacity: 0 }}
-              whileInView={{ y: "0%", opacity: 1 }}
-              viewport={scrollViewport}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display font-bold text-[clamp(2rem,4vw,3.25rem)] tracking-tight text-[var(--text-primary)]"
-            >
-              {t("headline_1")}
-            </motion.h2>
+    <section className="relative py-24 lg:py-32 bg-[var(--bg-primary)]">
+      <div className="section-container relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 mb-16"
+        >
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent-blue)]">
+              Parcours · log de carrière
+            </span>
+            <div className="flex-1 h-px bg-[var(--line-subtle)]" />
+            <span className="font-mono text-[10px] tracking-[0.14em] text-[var(--text-muted)]">
+              {String(ENTRY_KEYS.length).padStart(2, "0")} entrées
+            </span>
           </div>
-          <div className="overflow-hidden">
-            <motion.h2
-              initial={{ y: "105%", opacity: 0 }}
-              whileInView={{ y: "0%", opacity: 1 }}
-              viewport={scrollViewport}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-              className="font-display font-bold text-[clamp(2rem,4vw,3.25rem)] tracking-tight text-[var(--text-secondary)]"
-            >
-              {t("headline_2")}
-            </motion.h2>
+          <RulerMarks count={32} className="opacity-30" />
+        </motion.div>
+
+        <div className="relative">
+          {/* Ligne verticale chronologique */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[1.05rem] lg:left-[calc(25%-0.5rem)] top-0 bottom-0 w-px bg-[var(--line-subtle)]"
+          />
+
+          <div className="flex flex-col">
+            {ENTRY_KEYS.map((key, i) => (
+              <ExperienceEntry
+                key={key}
+                index={i}
+                isLast={i === ENTRY_KEYS.length - 1}
+                company={t(`entries.${key}.company`)}
+                role={t(`entries.${key}.role`)}
+                period={t(`entries.${key}.period`)}
+                location={t(`entries.${key}.location`)}
+                description={t(`entries.${key}.description`)}
+                tags={t.raw(`entries.${key}.tags`) as string[]}
+              />
+            ))}
           </div>
-        </div>
-
-        {/* Timeline */}
-        <div className="relative flex flex-col gap-0">
-
-          {/* Spine line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-[var(--line-subtle)] md:left-1/2 overflow-hidden">
-            <motion.div
-              className="w-full bg-[var(--accent-blue)] origin-top"
-              style={{ height: lineHeight, opacity: 0.4 }}
-            />
-          </div>
-
-          {ENTRY_KEYS.map((key, i) => (
-            <TimelineEntry
-              key={key}
-              company={t(`entries.${key}.company`)}
-              role={t(`entries.${key}.role`)}
-              period={t(`entries.${key}.period`)}
-              location={t(`entries.${key}.location`)}
-              description={t(`entries.${key}.description`)}
-              tags={t.raw(`entries.${key}.tags`) as string[]}
-              index={i}
-              isLast={i === ENTRY_KEYS.length - 1}
-            />
-          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function TimelineEntry({
-  company,
-  role,
-  period,
-  location,
-  description,
-  tags,
-  index,
-  isLast,
+function ExperienceEntry({
+  index, isLast, company, role, period, location, description, tags,
 }: {
+  index: number;
+  isLast: boolean;
   company: string;
   role: string;
   period: string;
   location: string;
   description: string;
   tags: string[];
-  index: number;
-  isLast: boolean;
 }) {
-  const isRight = index % 2 === 0;
-
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
-      className={`relative flex items-start gap-8 pb-16 last:pb-0 md:gap-0 ${isLast ? "" : ""}`}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.05 }}
+      className={`
+        group relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 lg:py-14
+        border-t border-[var(--line-subtle)]
+        ${isLast ? "border-b" : ""}
+        transition-colors duration-300
+      `}
     >
-      {/* Mobile layout: all left-aligned with spine on left */}
-      <div className="md:hidden pl-12 flex flex-col gap-3 flex-1">
-        <EntryCard
-          company={company}
-          role={role}
-          period={period}
-          location={location}
-          description={description}
-          tags={tags}
-        />
-      </div>
+      {/* Pastille sur la timeline */}
+      <span
+        aria-hidden="true"
+        className="absolute left-[1rem] lg:left-[calc(25%-0.55rem)] top-12 w-2.5 h-2.5 border border-[var(--accent-blue)] bg-[var(--bg-primary)] rotate-45 group-hover:bg-[var(--accent-blue)] transition-colors duration-300"
+      />
 
-      {/* Desktop layout: alternating sides */}
-      <div className="hidden md:grid grid-cols-2 w-full">
-        {/* Left content */}
-        <div className={`pr-12 ${isRight ? "flex justify-end" : ""}`}>
-          {isRight && (
-            <EntryCard
-              company={company}
-              role={role}
-              period={period}
-              location={location}
-              description={description}
-              tags={tags}
-            />
-          )}
+      {/* Colonne gauche : meta avec offset pour la timeline */}
+      <div className="lg:col-span-3 flex flex-col gap-3 pl-10 lg:pl-0 lg:pr-10">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs tracking-[0.16em] text-[var(--accent-blue)]">
+            ENTRY · {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
+        <span className="font-mono text-[11px] tracking-[0.12em] text-[var(--text-secondary)] uppercase">
+          {period}
+        </span>
+        <span className="font-mono text-[10px] tracking-wider text-[var(--text-muted)]">
+          {location}
+        </span>
+      </div>
 
-        {/* Right content */}
-        <div className={`pl-12 ${!isRight ? "flex justify-start" : ""}`}>
-          {!isRight && (
-            <EntryCard
-              company={company}
-              role={role}
-              period={period}
-              location={location}
-              description={description}
-              tags={tags}
-            />
-          )}
+      {/* Centre : entreprise + rôle + description */}
+      <div className="lg:col-span-6 flex flex-col gap-5 pl-10 lg:pl-6 lg:border-l border-[var(--line-subtle)]">
+        <div className="flex flex-col gap-1.5">
+          <h3 className="font-display font-semibold text-[clamp(1.5rem,3vw,2.4rem)] tracking-[-0.005em] text-[var(--text-primary)] leading-[1.15] group-hover:text-[var(--accent-blue)] transition-colors duration-300">
+            {company}
+          </h3>
+          <p className="font-body font-light text-[var(--text-secondary)] text-base italic">
+            {role}
+          </p>
         </div>
+        <p className="font-body font-light text-[15px] text-[var(--text-muted)] leading-[1.7] max-w-xl">
+          {description}
+        </p>
       </div>
 
-      {/* Timeline node */}
-      <div className="absolute left-4 top-1.5 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center">
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 + 0.2 }}
-          className="w-2.5 h-2.5 rounded-full bg-[var(--accent-blue)] shadow-[0_0_12px_2px_rgba(59,130,246,0.4)]"
-        />
-      </div>
-    </motion.div>
-  );
-}
-
-function EntryCard({
-  company,
-  role,
-  period,
-  location,
-  description,
-  tags,
-}: {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  description: string;
-  tags: string[];
-}) {
-  return (
-    <div className="max-w-sm w-full flex flex-col gap-4 group">
-      {/* Company name */}
-      <div>
-        <h3 className="font-display font-semibold text-lg text-[var(--text-primary)] leading-tight mb-1">
-          {company}
-        </h3>
-        <p className="font-body text-sm text-[var(--accent-blue)]">{role}</p>
-      </div>
-
-      {/* Meta */}
-      <div className="flex items-center gap-3">
-        <span className="font-mono text-xs text-[var(--text-muted)]">{period}</span>
-        <div className="w-px h-3 bg-[var(--line-subtle)]" />
-        <span className="font-mono text-xs text-[var(--text-muted)]">{location}</span>
-      </div>
-
-      {/* Description */}
-      <p className="font-body text-sm text-[var(--text-muted)] leading-relaxed">
-        {description}
-      </p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2">
+      {/* Droite : tags */}
+      <div className="lg:col-span-3 flex flex-wrap gap-2 pl-10 lg:pl-0 lg:justify-end lg:items-start lg:content-start">
         {tags.map((tag) => (
           <TechTag key={tag} label={tag} />
         ))}
       </div>
-    </div>
+    </motion.article>
   );
 }

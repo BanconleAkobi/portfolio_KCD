@@ -16,6 +16,8 @@ export default function CustomCursor() {
     const isTouchDevice = window.matchMedia("(hover: none)").matches;
     if (isTouchDevice) return;
 
+    document.documentElement.classList.add("has-custom-cursor");
+
     function onMove(e: MouseEvent) {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -47,6 +49,7 @@ export default function CustomCursor() {
     document.addEventListener("mouseout", onLeave, { passive: true });
 
     return () => {
+      document.documentElement.classList.remove("has-custom-cursor");
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onEnter);
       document.removeEventListener("mouseout", onLeave);

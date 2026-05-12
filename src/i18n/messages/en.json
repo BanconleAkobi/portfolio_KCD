@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Carlos — Mechanical Engineer",
+    "title": "Carlos · Mechanical Engineer",
     "description": "Mechanical engineering student at INSA Hauts-de-France. Specialized in numerical simulation, CAD, FEA and industrial VR environments."
   },
   "nav": {
@@ -26,14 +26,17 @@
     "location_label": "Currently in"
   },
   "about": {
-    "section_label": "// 01 ——— ABOUT",
+    "section_index": "01",
+    "section_name": "ABOUT",
+    "page_title": "About.",
+    "page_subtitle": "Engineering student, apprentice at NOVARES, currently on international internship in Timișoara. Here's how I think, and how I work.",
     "headline_1": "Engineer in progress,",
     "headline_2": "thinker by vocation.",
-    "bio": "Apprentice engineer at NOVARES and student at INSA Hauts-de-France, I design and simulate complex mechanical systems. My approach combines analytical rigor, mastery of advanced digital tools and curiosity for emerging technologies — from classical FEA to industrial virtual reality environments.",
+    "bio": "Apprentice engineer at NOVARES and student at INSA Hauts-de-France, I design and simulate complex mechanical systems. My approach combines analytical rigor and mastery of advanced digital tools: from classical FEA to industrial virtual reality environments.",
     "bio_2": "Currently on an international internship in Timișoara, Romania, I apply these skills to real industrial challenges in a demanding, multicultural environment.",
     "disciplines": {
       "simulation": { "title": "Numerical Simulation", "desc": "FEA, fluid dynamics, stress analysis" },
-      "cad": { "title": "CAD & 3D Design", "desc": "CATIA V5, Fusion 360, SolidWorks" },
+      "cad": { "title": "CAD and 3D Design", "desc": "CATIA V5, Fusion 360, SolidWorks" },
       "vr": { "title": "Virtual Reality", "desc": "Industrial VR environments in Unity" },
       "materials": { "title": "Materials Science", "desc": "Characterization, testing, rheology" },
       "imaging": { "title": "Image Processing", "desc": "Dimensional analysis, quality control" },
@@ -41,10 +44,13 @@
     },
     "status_school": "INSA Hauts-de-France",
     "status_location": "Timișoara, Romania",
-    "status_level": "4th Year — Internship"
+    "status_level": "4th Year · Internship"
   },
   "expertise": {
-    "section_label": "// 02 ——— EXPERTISE",
+    "section_index": "02",
+    "section_name": "EXPERTISE",
+    "page_title": "Expertise.",
+    "page_subtitle": "A methodical toolkit, built around numerical simulation, 3D design and industrial virtual reality.",
     "headline_1": "Engineer's",
     "headline_2": "toolkit.",
     "categories": {
@@ -81,22 +87,25 @@
     }
   },
   "experience": {
-    "section_label": "// 03 ——— EXPERIENCE",
+    "section_index": "03",
+    "section_name": "EXPERIENCE",
+    "page_title": "Experience.",
+    "page_subtitle": "Four years building structure: industrial apprenticeship, simulation projects, VR environments and international internship.",
     "headline_1": "Field",
     "headline_2": "experience.",
     "entries": {
       "timisoara": {
         "company": "International Internship",
         "role": "Engineering Intern",
-        "period": "May 2026 — Aug 2026",
+        "period": "May 2026 · Aug 2026",
         "location": "Timișoara, Romania",
-        "description": "End-of-4th-year industrial internship. Immersion in an international industrial environment — applying simulation and analysis methods to real-world problems in a multicultural context.",
+        "description": "End-of-4th-year industrial internship. Immersion in an international industrial environment, applying simulation and analysis methods to real-world problems in a multicultural context.",
         "tags": ["Simulation", "FEA", "International", "R&D"]
       },
       "novares": {
         "company": "NOVARES",
         "role": "Apprentice Engineer",
-        "period": "2024 — 2026",
+        "period": "2024 · 2026",
         "location": "France",
         "description": "Mechanical engineering apprenticeship at a global Tier-1 automotive supplier. Material characterization, numerical simulation development and creation of reproducible industrial workflows.",
         "tags": ["HyperMesh", "Simsolid", "CATIA", "FEA", "Materials"]
@@ -104,15 +113,15 @@
       "vr_tech": {
         "company": "VR Technician",
         "role": "VR Environment Developer",
-        "period": "2023 — 2024",
+        "period": "2023 · 2024",
         "location": "France",
-        "description": "Design and deployment of immersive virtual reality environments for industrial training and ergonomic validation. CAD assembly import, physical interactions and haptic feedback integration.",
+        "description": "Design and deployment of immersive VR environments for industrial training and ergonomic validation. CAD assembly import, physical interactions and haptic feedback integration.",
         "tags": ["Unity", "VR", "SteamVR", "CAD Assets"]
       },
       "insa": {
         "company": "INSA Hauts-de-France",
         "role": "Engineering Student",
-        "period": "2021 — 2026",
+        "period": "2021 · 2026",
         "location": "Valenciennes, France",
         "description": "General engineering degree with specialization in mechanics, thermics and industrial systems. Multidisciplinary projects, laboratory practical work and industrial case studies.",
         "tags": ["Mechanics", "Thermics", "Stress Analysis", "Projects"]
@@ -120,7 +129,10 @@
     }
   },
   "projects": {
-    "section_label": "// 04 ——— PROJECTS",
+    "section_index": "04",
+    "section_name": "PROJECTS",
+    "page_title": "Projects.",
+    "page_subtitle": "Concrete case studies: FEA simulations, industrial VR environments and material characterization. Each project, a measurable outcome.",
     "headline_1": "What I",
     "headline_2": "have built.",
     "cta": "View project",
@@ -130,17 +142,17 @@
       {
         "id": "fea-novares",
         "number": "01",
-        "title": "FEA Analysis — Automotive Part",
+        "title": "FEA Analysis on Automotive Part",
         "subtitle": "Mechanical stress simulation",
         "description": "Finite element modeling and simulation of an automotive plastic component under dynamic loads. Geometry optimization based on simulation results to reduce mass while maintaining resistance criteria.",
         "specs": [
           { "label": "SOFTWARE", "value": "HyperMesh + Simsolid" },
           { "label": "TYPE", "value": "FEA Simulation" },
           { "label": "MATERIAL", "value": "Technical polymer" },
-          { "label": "REDUCTION", "value": "−12% mass" }
+          { "label": "RESULT", "value": "12% mass reduction" }
         ],
         "tags": ["FEA", "HyperMesh", "Simsolid", "NOVARES"],
-        "color": "#1a2035"
+        "color": "#0f1520"
       },
       {
         "id": "vr-industrial",
@@ -151,37 +163,40 @@
         "specs": [
           { "label": "ENGINE", "value": "Unity 2023 LTS" },
           { "label": "SDK", "value": "SteamVR / XR Toolkit" },
-          { "label": "ASSETS", "value": "CATIA → FBX" },
-          { "label": "LATENCY", "value": "<18ms (90fps)" }
+          { "label": "ASSETS", "value": "CATIA to FBX" },
+          { "label": "PERFORMANCE", "value": "90fps · 18ms latency" }
         ],
         "tags": ["Unity", "VR", "SteamVR", "Ergonomics"],
-        "color": "#0d1f2d"
+        "color": "#0a1520"
       },
       {
         "id": "material-characterization",
         "number": "03",
         "title": "Material Characterization",
-        "subtitle": "Rheological & mechanical analysis",
+        "subtitle": "Rheological and mechanical analysis",
         "description": "Mechanical characterization program for technical polymers used in the automotive industry. Tensile testing, rheological analysis and behavioral modeling to feed simulation databases.",
         "specs": [
           { "label": "METHOD", "value": "ISO standardized tests" },
           { "label": "ANALYSIS", "value": "MATLAB + ImageJ" },
           { "label": "MATERIALS", "value": "PP, PA6, ABS" },
-          { "label": "DELIVERABLES", "value": "Materials database" }
+          { "label": "DELIVERABLE", "value": "Materials database" }
         ],
         "tags": ["Materials", "MATLAB", "ISO", "NOVARES"],
-        "color": "#1a1810"
+        "color": "#141009"
       }
     ]
   },
   "skills": {
-    "section_label": "// 05 ——— SKILLS",
+    "section_index": "05",
+    "section_name": "SKILLS",
+    "page_title": "Skills.",
+    "page_subtitle": "Honest technical mapping: mastery level for every tool, method and engineering discipline.",
     "headline_1": "Domains of",
     "headline_2": "mastery.",
     "level_labels": ["Notions", "Practice", "Mastery", "Expert"],
     "domains": [
       {
-        "category": "CAD & Modeling",
+        "category": "CAD and Modeling",
         "items": [
           { "name": "CATIA V5", "level": 4 },
           { "name": "Fusion 360", "level": 3 },
@@ -189,7 +204,7 @@
         ]
       },
       {
-        "category": "Simulation & FEA",
+        "category": "Simulation and FEA",
         "items": [
           { "name": "HyperMesh", "level": 4 },
           { "name": "Simsolid", "level": 4 },
@@ -205,7 +220,7 @@
         ]
       },
       {
-        "category": "Analysis & Processing",
+        "category": "Analysis and Processing",
         "items": [
           { "name": "MATLAB", "level": 3 },
           { "name": "OpenCV", "level": 2 },
@@ -232,7 +247,10 @@
     "tags": ["FEA","Stress Analysis","Thermics","Dynamics","GD&T","FMEA","CAD","CFD","VR","Ergonomics","Polymers","Composites","Fatigue","Optimization","ISO Standards","Manufacturing"]
   },
   "contact": {
-    "section_label": "// 06 ——— CONTACT",
+    "section_index": "06",
+    "section_name": "CONTACT",
+    "page_title": "Contact.",
+    "page_subtitle": "Available for opportunities, technical collaborations or discussions about engineering projects.",
     "headline_1": "Let's build",
     "headline_2": "together.",
     "subline": "Available for opportunities, technical collaborations or discussions about engineering projects.",
